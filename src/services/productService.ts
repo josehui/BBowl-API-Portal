@@ -219,7 +219,7 @@ export class ProductService {
         let query = `/products?$top=${take}&$skip=${skip}`;
 
         if (filter.pattern) {
-            query = Utils.addQueryParameter(query, `$filter=(contains(properties/displayName,'${encodeURIComponent(filter.pattern)}'))`);
+            query = Utils.addQueryParameter(query, `$filter=(contains(properties/displayName,'${encodeURIComponent(filter.pattern)}') or contains(properties/description,'${encodeURIComponent(filter.pattern)}'))`);
         }
 
         const page = await this.mapiClient.get<Page<ProductContract>>(query, [MapiClient.getPortalHeader("getProductsPage")]);

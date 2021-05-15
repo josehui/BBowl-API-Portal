@@ -1,6 +1,6 @@
 {
     "environment": "publishing",
-    "managementApiUrl": "https://<service-name>.management.azure-api.net",
-    "managementApiAccessToken": "SharedAccessSignature...",
+    "managementApiUrl": "https://chhuihybird.management.azure-api.net",
+    "managementApiAccessToken": "SharedAccessSignature integration&202106141043&/hLiw1ryVql2fXeDDpDaeKupDQdACNJjrxTBknBF871iMKPapdV3oimrqr96Neme6NFi4XWPYZ9danDUVTg+Rg==",
     "useHipCaptcha": false
 }
