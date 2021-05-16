@@ -59,6 +59,14 @@ export class Subscriptions {
         subscription.toggleEdit();
     }
 
+    public async renewSubscription(subscription: SubscriptionListItem): Promise<void> {
+        const updated = await this.productService.renewSubscription(subscription.model.id);
+        const updatedVM = new SubscriptionListItem(updated);
+        this.syncSubscriptionLabelState(subscription, updatedVM);
+        this.subscriptions.replace(subscription, updatedVM);
+        subscription.toggleEdit();
+    }
+
     public async regeneratePKey(subscription: SubscriptionListItem): Promise<void> {
         subscription.isPRegenerating(true);
         const updated = await this.productService.regeneratePrimaryKey(subscription.model.id);

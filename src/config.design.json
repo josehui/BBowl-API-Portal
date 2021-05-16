@@ -2,6 +2,6 @@
     "environment": "development",
     "managementApiUrl": "https://chhuihybird.management.azure-api.net",
     "managementApiAccessToken": "SharedAccessSignature integration&202106141043&/hLiw1ryVql2fXeDDpDaeKupDQdACNJjrxTBknBF871iMKPapdV3oimrqr96Neme6NFi4XWPYZ9danDUVTg+Rg==",
-    "backendUrl": "https://<service-name>.developer.azure-api.net",
+    "backendUrl": "https://chhuihybird.developer.azure-api.net",
     "useHipCaptcha": false
 }

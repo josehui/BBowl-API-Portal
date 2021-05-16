@@ -31,6 +31,8 @@
     "mochaExplorer.files": ["tests/**/*.spec.ts", "src/**/*.spec.ts"],
     "mochaExplorer.require": "./mocha",
     "mochaExplorer.timeout": 30000,
-    "sfmt.insize": 4
+    "sfmt.insize": 4,
+    "liveServer.settings.root": "dist/website",
+    "liveServer.settings.port": 8080
   
 }

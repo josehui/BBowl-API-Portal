@@ -68,6 +68,17 @@
                     </div>
                     <!-- /ko -->
 
+                    <!-- ko ifnot: $data.model.isRejected -->
+                    <div role="row" class="row">
+                        <div role="cell" class="col-lg-3">
+                            Expire on
+                        </div>
+                        <div role="cell" class="col-lg-6">
+                            <span data-bind="text: $parent.timeToString(model.expirationDate)"></span>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+
                     <div role="row" class="row">
                         <div role="cell" class="col-md-3">
                             Primary key
@@ -123,12 +134,17 @@
             </div>
             <div role="cell" class="col-1">
                 <span data-bind="text: model.state"></span>
+                <span data-bind="text: model.state"></span>
             </div>
             <div role="cell" class="col-1">
                 <!-- ko if: $data.model.canBeCancelled() -->
                 <a class="btn-link" href="#" data-bind="click: $parent.cancelSubscription"
                     aria-label="Cancel subscription">
                     Cancel
+                </a>
+                <a class="btn-link" href="#" data-bind="click: $parent.renewSubscription"
+                    aria-label="Renew subscription">
+                    Renew
                 </a>
                 <!-- /ko -->
             </div>

@@ -26,7 +26,7 @@ export class Subscription {
         this.createdDate = new Date(contract.properties.createdDate);
 
         this.endDate = (contract.properties.endDate && new Date(contract.properties.endDate)) || undefined;
-        this.expirationDate = (contract.properties.expirationDate && new Date(contract.properties.expirationDate)) || undefined;
+        this.expirationDate = (contract.properties.expirationDate && contract.properties.expirationDate!=null && new Date(contract.properties.expirationDate)) || undefined;
         this.notificationDate = (contract.properties.notificationDate && new Date(contract.properties.notificationDate)) || undefined;
 
         this.primaryKey = contract.properties.primaryKey;

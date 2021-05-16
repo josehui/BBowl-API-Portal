@@ -216,7 +216,7 @@ export class ProductService {
     public async getProductsPage(filter: SearchQuery): Promise<Page<Product>> {
         const skip = filter.skip || 0;
         const take = filter.take || Constants.defaultPageSize;
-        let query = `/products?$top=${take}&$skip=${skip}`;
+        let query = `/products?$top=${take}&$skip=${skip}&expandGroups=true`;
 
         if (filter.pattern) {
             query = Utils.addQueryParameter(query, `$filter=(contains(properties/displayName,'${encodeURIComponent(filter.pattern)}') or contains(properties/description,'${encodeURIComponent(filter.pattern)}'))`);
@@ -350,7 +350,30 @@ export class ProductService {
 
         const payload = {
             properties: {
-                name: subscriptionName
+                name: subscriptionName,
+            }
+        };
+
+        await this.mapiClient.patch(`${subscriptionId}?appType=${Constants.AppType}`, headers, payload);
+
+        return await this.getSubscription(subscriptionId);
+    }
+
+     /**
+     * Renew subscription
+     * @param subscriptionId subscriptionId {string} Subscription unique identifier.
+     * @param subscriptionName {string} New subscription name.
+     */
+      public async renewSubscription(subscriptionId: string): Promise<Subscription> {
+        if (!subscriptionId) {
+            throw new Error(`Parameter "subscriptionId" not specified.`);
+        }
+        const headers: HttpHeader[] = [{ name: "If-Match", value: "*" }, MapiClient.getPortalHeader("renewubscription")];
+        let dt = new Date()
+        dt.setMonth(dt.getMonth() + 6);
+        const payload = {
+            properties: {
+                expirationDate: dt.toISOString(),
             }
         };
 

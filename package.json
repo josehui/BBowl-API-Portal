@@ -12,6 +12,7 @@
     },
     "scripts": {
         "start": "webpack-dev-server --open --config webpack.develop.js",
+
         "build": "webpack --config webpack.build.js",
         "build-designer": "webpack --config webpack.designer.js",
         "build-publisher": "webpack --config webpack.publisher.js",
