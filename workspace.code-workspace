@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "dist"
+		},
+		{
+			"path": ".vscode"
+		},
+		{
+			"path": "dist/website"
+		}
+	],
+    "settings": {
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"liveServer.settings.multiRootWorkspaceName": "website"
+    }
+}
